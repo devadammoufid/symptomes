@@ -1,0 +1,18 @@
+{
+    "symptom": "{{value}} da!",
+    "Fever": "Fever",
+    "Cough": "Cough",
+    "Shortness_of_breath": "Shortness of breath",
+    "Muscle_ache": "Muscle ache",
+    "Confusion": "Confusion",
+    "Headache": "Headache",
+    "Sore_throat": "Sore throat",
+    "Rhinorrhoea__runny_nose__" : "Rhinorrhoea (runny nose)",
+    "Chest_pain": "Chest pain",
+    "Diarrhea": "Diarrhea",
+    "Nausea_and_vomiting": "Nausea and vomiting",
+    "More_than_one_sign_or_symptom": "More than one sign ↵or symptom",
+    "Fever_cough_and_shortness_of_breath": "Fever, cough, and shortness of breath"
+
+}
+ 

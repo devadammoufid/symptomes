@@ -1,0 +1,16 @@
+{
+    "symptom": "{{value}} da!",
+    "Fever": "Fièvre",
+    "Cough": "Toux",
+    "Shortness_of_breath": "Essoufflement",
+    "Muscle_ache": "Douleurs musculaires",
+    "Confusion": "Confusion",
+    "Headache": "Mal de crâne",
+    "Sore_throat": "Gorge irritée",
+    "Rhinorrhoea__runny_nose__" : "Rhinorrhée (nez qui coule)",
+    "Chest_pain": "Douleur thoracique",
+    "Diarrhea": "La diarrhée",
+    "Nausea_and_vomiting": "Nausée et vomissements",
+    "More_than_one_sign_or_symptom": "Plus d'un signe ou symptôme",
+    "Fever_cough_and_shortness_of_breath": "Fièvre, toux, et essoufflement"
+}
