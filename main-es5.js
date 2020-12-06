@@ -224,7 +224,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       console.log(userLang.substring(0, 2));
       translate.addLangs(['en', 'fr']); // translate.setDefaultLang("fr");
 
-      translate.setDefaultLang(userLang.substring(0, 2));
+      var lng = userLang.substring(0, 2);
+      if (lng === 'en' || lng === 'fr') translate.setDefaultLang(lng);else translate.setDefaultLang("en");
       this.matIconRegistry.addSvgIcon("my_icon_users_gray", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/svg/user_gray.svg"));
       this.matIconRegistry.addSvgIcon("analytics_gray", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/svg/analytics_gray.svg"));
       this.matIconRegistry.addSvgIcon("app_gray", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/svg/app_gray.svg"));
@@ -653,7 +654,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this._http = _http; // private host = "http://localhost:3000"
         // private host = "https://api.worldcovid19.live"
 
-        this.host = "http://dev1.covid-pass.tech:3000";
+        this.host = "https://dev1.covid-pass.tech";
       }
 
       _createClass(GetdataService, [{
@@ -3822,6 +3823,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                                       getAllData = _ref4[0],
                                       getTimelineData = _ref4[1];
 
+                                  _this7.dataOB = rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (observer) {
+                                    observer.next("loaded");
+                                    observer.complete();
+                                  });
                                   _this7.isLoading = false;
                                   _this7.isLoadingCountries = false;
                                   _this7.isLoadingMap = false;

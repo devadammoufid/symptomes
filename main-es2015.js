@@ -108,7 +108,11 @@ class AppComponent {
         console.log(userLang.substring(0, 2));
         translate.addLangs(['en', 'fr']);
         // translate.setDefaultLang("fr");
-        translate.setDefaultLang(userLang.substring(0, 2));
+        let lng = userLang.substring(0, 2);
+        if (lng === 'en' || lng === 'fr')
+            translate.setDefaultLang(lng);
+        else
+            translate.setDefaultLang("en");
         this.matIconRegistry.addSvgIcon("my_icon_users_gray", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/svg/user_gray.svg"));
         this.matIconRegistry.addSvgIcon("analytics_gray", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/svg/analytics_gray.svg"));
         this.matIconRegistry.addSvgIcon("app_gray", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/svg/app_gray.svg"));
@@ -362,7 +366,7 @@ class GetdataService {
         this._http = _http;
         // private host = "http://localhost:3000"
         // private host = "https://api.worldcovid19.live"
-        this.host = "http://dev1.covid-pass.tech:3000";
+        this.host = "https://dev1.covid-pass.tech";
     }
     getAll(type) {
         return this._http.get(`${this.host}/countries?sort=${type}`).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(this.handleError));
@@ -2355,6 +2359,10 @@ class DashboardComponent {
             this.zone.runOutsideAngular(() => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
                 Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])(this._getDataService.getAll(this.sortType), this._getDataService.getTimelineGlobal())
                     .subscribe(([getAllData, getTimelineData]) => {
+                    this.dataOB = rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(observer => {
+                        observer.next("loaded");
+                        observer.complete();
+                    });
                     this.isLoading = false;
                     this.isLoadingCountries = false;
                     this.isLoadingMap = false;
